@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+
+  --color-calendar-graph-day-border: #d1d5db;
+  --color-calendar-graph-day-bg: #f3f4f6;
+}
+
+html,
+body {
+  font-family: 'roboto';
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* CARD */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 12px;
+
+  /* background-color: #10b981; */
+  background: linear-gradient(135deg, #eceddc 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, #eceddc 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, #eceddc 25%, transparent 25%),
+    linear-gradient(45deg, #eceddc 25%, transparent 25%);
+  background-size: 100px 100px;
+  background-color: #065f46;
+}
+
+.button {
+  font-size: 14px;
+  padding: 8px 12px;
+
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  background-color: #065f46;
+
+  cursor: pointer;
+  transition: 0.3s;
+
+  box-shadow: -1px 1px 20px -9px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 1px 20px -9px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px 1px 20px -9px rgba(0, 0, 0, 0.2);
+}
+
+.button:active {
+  background-color: #065f46dd;
+  transition: 0.1s;
+}
+
+.button-outline {
+  font-size: 14px;
+  padding: 4px 12px;
+
+  border: 0.5px solid #065f46;
+  border-radius: 6px;
+  color: #065f46;
+  font-weight: bold;
+  background-color: transparent;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button-outline:active {
+  background-color: #d1d5db33;
+}
+
+.card {
+  width: 770px;
+  padding: 16px 24px;
+  border-radius: 4px;
+  background-color: white;
+
+  border: 1px solid #3741512f;
+  box-shadow: -1px 1px 20px -9px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: -1px 1px 20px -9px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: -1px 1px 20px -9px rgba(0, 0, 0, 0.2);
+
+  user-select: none;
+}
+
+/* TITLE */
+
+.title {
+  margin: 0;
+  padding-bottom: 4px;
+  font-size: 22px;
+  color: #374151;
+  font-weight: bold;
+}
+
+.sub-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.year-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.year-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 16px;
+  width: 16px;
+
+  font-size: 10px;
+  color: #9ca3af;
+
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background-color: transparent;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.year-container button:hover {
+  background-color: #a7f3d022;
+}
+
+.year-container button:active {
+  background-color: #065f4622;
+  transition: 0.1s;
+}
+
+.sub-title {
+  margin: 0;
+  font-size: 16px;
+  color: #4b5563;
+  font-weight: 400;
+}
+
+/* CONTRIBUTION */
+
+.contributions {
+  padding-top: 12px;
+}
+
+table {
+  display: table;
+  text-indent: initial;
+  unicode-bidi: isolate;
+  border-color: gray;
+}
+
+.ContributionCalendar-grid {
+  width: max-content;
+  border-collapse: separate;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}
+
+.ContributionCalendar-label {
+  padding: 0.125em 0.5em 0.125em 0;
+  font-size: 12px;
+  color: #404040;
+  text-align: left;
+  fill: #404040;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  unicode-bidi: isolate;
+  border-color: inherit;
+}
+
+.ContributionCalendar-day {
+  width: 10px;
+  fill: var(--color-calendar-graph-day-bg);
+  shape-rendering: geometricPrecision;
+  background-color: var(--color-calendar-graph-day-bg);
+  border-radius: 2px;
+  outline: 1px solid var(--color-calendar-graph-day-border);
+  outline-offset: -1px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  word-wrap: normal;
+  border: 0;
+}
+
+.description-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  font-weight: 400;
+}
+
+.description-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.description {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+/* TABLE CONTROL */
+
+.active {
+  background-color: #4ade80 !important;
+  outline: 1px solid #10b981 !important;
+}

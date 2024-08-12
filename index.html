@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git Decor</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <!-- FILES -->
+    <link rel="stylesheet" href="./src/styles.css" />
+    <script src="./src/core/getDaysOfYear.js"></script>
+    <script src="./src/core/changeState.js"></script>
+    <script src="./src/core/createTable.js"></script>
+    <script src="./src/core/drawController.js"></script>
+    <script src="./src/core/core.js"></script>
+    <!-- ROBOTO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!---->
+  </head>
+  <body class="main">
+    <div class="card" style="margin-top: -40px">
+      <h3 class="title">Git Decor</h3>
+      <div class="sub-container">
+        <h4 class="sub-title">Customize your git contributions with draws</h4>
+        <div class="year-container">
+          <button onclick="changeTableYear(currentYear-1)"><</button>
+          <span id="year_label"></span>
+          <button onclick="changeTableYear(currentYear+1)">></button>
+        </div>
+      </div>
+
+      <div class="contributions">
+        <table
+          id="contributions_table"
+          role="grid"
+          aria-readonly="true"
+          class="ContributionCalendar-grid js-calendar-graph-table"
+          style="border-spacing: 3px; overflow: hidden; position: relative"
+        >
+          <caption class="sr-only">
+            Contribution Graph
+          </caption>
+
+          <thead>
+            <tr style="height: 13px">
+              <td style="width: 28px">
+                <span class="sr-only">Day of Week</span>
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="5"
+                style="position: relative"
+              >
+                <span class="sr-only">January</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Jan</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">February</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Feb</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="5"
+                style="position: relative"
+              >
+                <span class="sr-only">March</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Mar</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">April</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Apr</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">May</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >May</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="5"
+                style="position: relative"
+              >
+                <span class="sr-only">June</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Jun</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">July</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Jul</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">August</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Aug</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="5"
+                style="position: relative"
+              >
+                <span class="sr-only">September</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Sep</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">October</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Oct</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="4"
+                style="position: relative"
+              >
+                <span class="sr-only">November</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Nov</span
+                >
+              </td>
+
+              <td
+                class="ContributionCalendar-label"
+                colspan="5"
+                style="position: relative"
+              >
+                <span class="sr-only">December</span>
+                <span aria-hidden="true" style="position: absolute; top: 0"
+                  >Dec</span
+                >
+              </td>
+            </tr>
+          </thead>
+
+          <tbody id="contributions_table_body"></tbody>
+        </table>
+
+        <div class="description-container">
+          <div class="description">
+            <span> • hold left click to draw </span>
+            <span> • hold right click to erase </span>
+          </div>
+
+          <div class="description-buttons">
+            <button class="button-outline" onclick="clearDraw()">clear</button>
+            <button class="button" onclick="saveDraw()">download</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="title">Support</h3>
+      <div class="sub-container">
+        <h4 class="sub-title">
+          You can contribute to the project your give support on my github, you
+          can also contact me in my email
+        </h4>
+      </div>
+    </div>
+  </body>
+</html>

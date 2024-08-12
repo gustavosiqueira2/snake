@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "git-decor",
+  "version": "1.0.0",
+  "description": "<h1 align='center'>\r   GIT DECOR\r </h1>",
+  "main": "index.js",
+  "scripts": {
+    "commit-draw": "node src/services/commitDraw.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavosiqueira2/git-decor.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavosiqueira2/git-decor/issues"
+  },
+  "homepage": "https://github.com/gustavosiqueira2/git-decor#readme",
+  "dependencies": {
+    "jsonfile": "^6.1.0",
+    "simple-git": "^3.25.0"
+  }
+}
